@@ -1,0 +1,79 @@
+# ieee-task
+ieee cs and web dev tasks
+1)What is the difference between em and rem units in CSS?
+Ans : (a)em-Relative to the font size of the parent element.
+      rem- Relative to the font size of the root element (<html>).
+      (b)em: Useful for nested components where you want sizing to be relative to a parent’s font size.
+      rem: Ideal for consistent sizing and spacing throughout a site, as it’s based on the root size.
+
+2)Explain the concept of closures in JavaScript. Provide an example where a closure might be useful.(With code)
+Ans : Closures in JavaScript let a function keep access to variables from its outer function even after the outer function has finished running. 
+      This means the inner function can still use and modify those variables.
+      CODE:
+        function createCounter() {
+  let count = 0; // `count` is a private variable
+
+  return function() {
+    count += 1; // Inner function accesses `count`
+    return count;
+  };
+}
+
+const counter = createCounter(); // `counter` is now a closure
+
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+3)What are semantic HTML tags?
+Semantic HTML tags provide meaning and structure to the web content by clearly defining its purpose. Unlike generic tags like <div> or <span>, 
+  semantic tags describe their content, making it easier for browsers, search engines, and developers to understand the structure of the page.
+
+Examples of Semantic HTML Tags:
+<header>: Represents the introductory content or navigational links.
+<footer>: Contains footer information, such as contact details or copyright.
+<section>: Groups related content together, often with a heading.
+<nav>: Indicates navigation links.
+
+4)How would you create a responsive design without using a CSS framework like Bootstrap?(WRITE THE CODE)
+  By using media queries inbuilt in CSS. -code
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Responsive design</title>
+    </head>
+    <body>
+        <div class="container">
+    
+        </div>
+    </body>
+    </html>
+  CSS
+          *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(to left , cyan ,lime);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            height: 200px;
+            width: 500px;
+            background-color: black;
+        }
+        @media  screen and (max-width : 500px) {
+            .container{
+                width: 200px;
+            }
+        }
+
+5)What is the purpose of the srcset attribute in the <img> tag?
+srcset is used to set different images with respect to a condition like width , height etc
