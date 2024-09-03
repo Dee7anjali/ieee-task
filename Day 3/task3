@@ -1,0 +1,153 @@
+1. Perfect Number Checker: 
+Write a function that checks if a given number is a perfect number. A perfect number is equal to the sum of its proper divisors (excluding itself).
+Example:
+Input: 28
+Output: True (28 = 1 + 2 + 4 + 7 + 14)
+Ans:public class PerfectNumberChecker {
+    // Function to check if a number is perfect
+    public static boolean isPerfect(int num) {
+        // Start with 1 as every number is divisible by 1
+        int sum = 1;
+
+        // Loop from 2 to the square root of the number
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                // If i is a divisor, add it and its pair divisor
+                sum += i;
+                if (i != num / i) {
+                    sum += num / i;
+                }
+            }
+        }
+
+        // A perfect number is equal to the sum of its proper divisors
+        return sum == num && num != 1;
+    }
+
+    public static void main(String[] args) {
+        int number = 28;
+        if (isPerfect(number)) {
+            System.out.println(number + " is a perfect number.");
+        } else {
+            System.out.println(number + " is not a perfect number.");
+        }
+    }
+}
+
+
+2. Palindrome Number:
+ Write a function that checks if a given integer is a palindrome. A palindrome number remains the same when its digits are reversed.
+Example:
+Input: 121
+Output: True
+Ans: public class PalindromeChecker {
+    // Function to check if a number is a palindrome
+    public static boolean isPalindrome(int num) {
+        int originalNum = num;
+        int reversedNum = 0;
+
+        // Reverse the number
+        while (num != 0) {
+            int digit = num % 10;
+            reversedNum = reversedNum * 10 + digit;
+            num /= 10;
+        }
+
+        // Check if the original number is equal to the reversed number
+        return originalNum == reversedNum;
+    }
+
+    public static void main(String[] args) {
+        int number = 12321;
+        if (isPalindrome(number)) {
+            System.out.println(number + " is a palindrome.");
+        } else {
+            System.out.println(number + " is not a palindrome.");
+        }
+    }
+}
+
+
+3. Count Vowels: 
+Write a function that counts the number of vowels (a, e, i, o, u) in a given string.
+Example:
+Input: “Hello, World!”
+Output: 3
+Ans : public class VowelCounter {
+    // Function to count the number of vowels in a string
+    public static int countVowels(String str) {
+        int count = 0;
+        // Convert the string to lowercase to handle both uppercase and lowercase vowels
+        str = str.toLowerCase();
+
+        // Loop through each character in the string
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            // Check if the character is a vowel
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        String input = "Hello World";
+        int vowelCount = countVowels(input);
+        System.out.println("Number of vowels in \"" + input + "\": " + vowelCount);
+    }
+}
+
+
+4. Reverse List:
+Write a function that reverses a given list of integers.
+Example:
+Input: [1, 2, 3, 4, 5]
+Output: [5, 4, 3, 2, 1]
+Ans : import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ListReverser {
+    // Function to reverse a list of integers
+    public static List<Integer> reverseList(List<Integer> list) {
+        // Use Collections.reverse() to reverse the list
+        Collections.reverse(list);
+        return list;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        numbers.add(5);
+
+        System.out.println("Original list: " + numbers);
+        List<Integer> reversedList = reverseList(numbers);
+        System.out.println("Reversed list: " + reversedList);
+    }
+}
+
+
+5. Factorial of a Number:
+Write a function that calculates the factorial of a non-negative integer.
+Example:
+Input: 5
+Output: 120 (5! = 5 × 4 × 3 × 2 ×1)
+Ans (in recursion)
+public class Factorial {
+    public static int factorial(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        int num = 5;
+        System.out.println("Factorial of " + num + " is " + factorial(num));
+    }
+}
